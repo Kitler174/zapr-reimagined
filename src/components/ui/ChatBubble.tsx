@@ -24,7 +24,7 @@ export default function ChatBubble({
   if (!open) {
     return null;
   }
-  const getSuggestedQuestions = async (answer: string) => {
+  const getSuggestedQuestions = async (answer: string, context: string) => {
     try {
       const response = await fetch("http://10.0.51.174:8000/question", {
         method: "POST",
@@ -33,6 +33,7 @@ export default function ChatBubble({
         },
         body: JSON.stringify({
           question: answer,
+          context: context,
         }),
       });
   
@@ -93,7 +94,7 @@ export default function ChatBubble({
   
       let buffer = "";
       let assistantMessage = "";
-  
+      let ragContext = "";
       // Tworzymy pustą wiadomość AI
       setMessages((prev) => [
         ...prev,
@@ -159,22 +160,26 @@ export default function ChatBubble({
             }
           }
   
-          // KONTEKST
           else if (eventType === "context") {
             try {
               const context = JSON.parse(data);
-  
+          
               console.log("Kontekst RAG:", context);
-  
-              // tutaj możesz później dodać
-              // przycisk "Pokaż kontekst"
+          
+              ragContext = context
+                .map((doc: any) => doc.content)
+                .join("\n\n");
+          
             } catch (error) {
               console.error("Błąd kontekstu:", data, error);
             }
           }
         }
       }
-      const suggestions = await getSuggestedQuestions(assistantMessage);
+      const suggestions = await getSuggestedQuestions(
+        assistantMessage,
+        ragContext
+      );
 
       setMessages((prev) => {
         const copy = [...prev];
