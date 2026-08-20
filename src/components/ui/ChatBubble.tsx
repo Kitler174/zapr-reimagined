@@ -4,6 +4,8 @@ import { X, Send, MessageCircle } from "lucide-react";
 type Message = {
   role: "user" | "assistant";
   content: string;
+  suggestions?: string[];
+
 };
 
 type ChatBubbleProps = {
@@ -22,8 +24,32 @@ export default function ChatBubble({
   if (!open) {
     return null;
   }
-  const sendMessage = async () => {
-    const text = message.trim();
+  const getSuggestedQuestions = async (answer: string) => {
+    try {
+      const response = await fetch("http://10.0.51.174:8000/question", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          question: answer,
+        }),
+      });
+  
+      if (!response.ok) {
+        throw new Error(`HTTP ${response.status}`);
+      }
+  
+      const data = await response.json();
+  
+      return data.questions ?? [];
+    } catch (error) {
+      console.error("Błąd generowania pytań:", error);
+      return [];
+    }
+  };
+  const sendMessage = async (question?: string) => {
+    const text = (question ?? message).trim();
   
     if (!text || loading) {
       return;
@@ -148,6 +174,19 @@ export default function ChatBubble({
           }
         }
       }
+      const suggestions = await getSuggestedQuestions(assistantMessage);
+
+      setMessages((prev) => {
+        const copy = [...prev];
+
+        copy[copy.length - 1] = {
+          role: "assistant",
+          content: assistantMessage,
+          suggestions,
+        };
+
+        return copy;
+      });
     } catch (error) {
       console.error("Błąd komunikacji z API:", error);
   
@@ -210,14 +249,37 @@ export default function ChatBubble({
                   : "flex justify-start"
               }
             >
-              <div
-                className={
-                  msg.role === "user"
-                    ? "max-w-[80%] rounded-xl bg-[#2563eb] px-3 py-2 text-sm text-white"
-                    : "max-w-[80%] rounded-xl bg-muted px-3 py-2 text-sm"
-                }
-              >
-                {msg.content}
+              <div className="max-w-[80%]">
+
+                {/* WIADOMOŚĆ */}
+                <div
+                  className={
+                    msg.role === "user"
+                      ? "rounded-xl bg-[#2563eb] px-3 py-2 text-sm text-white"
+                      : "rounded-xl bg-muted px-3 py-2 text-sm"
+                  }
+                >
+                  {msg.content}
+                </div>
+
+                {/* SUGEROWANE PYTANIA */}
+                {msg.role === "assistant" &&
+                  msg.suggestions &&
+                  msg.suggestions.length > 0 && (
+                    <div className="mt-2 flex flex-col gap-1.5">
+                      {msg.suggestions.map((question, questionIndex) => (
+                        <button
+                          key={questionIndex}
+                          onClick={() => sendMessage(question)}
+                          disabled={loading}
+                          className="rounded-lg border border-border bg-background px-3 py-2 text-left text-xs transition hover:bg-muted disabled:cursor-not-allowed disabled:opacity-50"
+                        >
+                          {question}
+                        </button>
+                      ))}
+                    </div>
+                  )}
+
               </div>
             </div>
           ))}
@@ -246,7 +308,7 @@ export default function ChatBubble({
             />
 
             <button
-              onClick={sendMessage}
+              onClick={() => sendMessage()}
               disabled={loading}
               className="rounded-md bg-[#2563eb] px-3 py-2 text-white hover:bg-[#1d4ed8] disabled:opacity-50"
             >
