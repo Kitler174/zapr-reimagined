@@ -5,7 +5,6 @@ const links = [
   { href: "#o-nas", label: "O nas" },
   { href: "#uslugi", label: "Usługi" },
   { href: "#system", label: "ZAPR-system" },
-  { href: "#certyfikaty", label: "Certyfikaty" },
   { href: "#kontakt", label: "Kontakt" },
 ];
 type NavProps = {
