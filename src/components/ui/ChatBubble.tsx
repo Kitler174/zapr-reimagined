@@ -42,7 +42,7 @@ export default function ChatBubble({
     setLoading(true);
   
     try {
-      const response = await fetch("http://10.0.51.174:8000/chat", {
+      const response = await fetch("http://10.0.51.174:8000/chat_zapr", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
