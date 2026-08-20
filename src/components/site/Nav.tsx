@@ -8,9 +8,13 @@ const links = [
   { href: "#certyfikaty", label: "Certyfikaty" },
   { href: "#kontakt", label: "Kontakt" },
 ];
+type NavProps = {
+  onOpenChat: () => void;
+};
 
-export function Nav() {
+export function Nav({ onOpenChat }: NavProps) {
   const [open, setOpen] = useState(false);
+
   return (
     <header className="sticky top-0 z-50 border-b border-border/60 bg-background/80 backdrop-blur-md">
       <div className="container-x flex h-16 items-center justify-between">
@@ -29,6 +33,12 @@ export function Nav() {
           <a href="#kontakt" className="rounded-md bg-brand px-4 py-2 text-brand-foreground hover:opacity-90 transition">
             Skontaktuj się
           </a>
+          <button
+            onClick={onOpenChat}
+            className="rounded-md bg-[#2563eb] px-4 py-2 text-white hover:bg-[#1d4ed8] transition"
+          >
+            Asystent AI
+          </button>
         </nav>
         <button onClick={() => setOpen(!open)} className="md:hidden p-2" aria-label="Menu">
           {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
@@ -45,6 +55,7 @@ export function Nav() {
           </div>
         </div>
       )}
+
     </header>
   );
 }

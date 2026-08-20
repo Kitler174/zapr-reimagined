@@ -1,7 +1,7 @@
 import { useState } from "react";
 import {
   ArrowRight, Calculator, Cpu, LayoutDashboard, ShieldCheck, Clock, Award,
-  MapPin, Mail, Phone, ChevronDown, CheckCircle2,
+  MapPin, Mail, Phone, ChevronDown, CheckCircle2
 } from "lucide-react";
 
 export function Hero() {
@@ -428,56 +428,7 @@ export function Contact() {
           </div>
         </div>
 
-        <ContactForm />
       </div>
     </section>
-  );
-}
-
-function ContactForm() {
-  const [sent, setSent] = useState(false);
-  return (
-    <form
-      onSubmit={(e) => { e.preventDefault(); setSent(true); }}
-      className="rounded-2xl bg-background text-foreground p-6 md:p-8 shadow-elegant"
-    >
-      <div className="font-display text-2xl">Skontaktuj się z nami</div>
-      <p className="text-sm text-muted-foreground mt-1">Odpowiemy w ciągu jednego dnia roboczego.</p>
-
-      <div className="mt-6 grid gap-4">
-        <Field label="Imię i nazwisko" required placeholder="Jan Kowalski" />
-        <Field label="Adres e-mail" type="email" required placeholder="jan@firma.pl" />
-        <Field label="Telefon (opcjonalnie)" placeholder="+48 …" />
-        <div>
-          <label className="text-xs font-medium uppercase tracking-wider text-muted-foreground">Wiadomość</label>
-          <textarea
-            required rows={5}
-            placeholder="W czym możemy pomóc?"
-            className="mt-1.5 w-full rounded-md border border-input bg-background px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand"
-          />
-        </div>
-        <button className="mt-2 rounded-md bg-brand px-5 py-3 text-brand-foreground hover:opacity-90 transition inline-flex items-center justify-center gap-2">
-          {sent ? "Dziękujemy — wiadomość wysłana" : <>Wyślij wiadomość <ArrowRight className="h-4 w-4" /></>}
-        </button>
-        <p className="text-xs text-muted-foreground">
-          Wysyłając wiadomość, wyrażasz zgodę na kontakt zwrotny w sprawie zapytania.
-        </p>
-      </div>
-    </form>
-  );
-}
-
-function Field({ label, required, ...rest }: { label: string; required?: boolean; type?: string; placeholder?: string }) {
-  return (
-    <div>
-      <label className="text-xs font-medium uppercase tracking-wider text-muted-foreground">
-        {label}{required && <span className="text-destructive"> *</span>}
-      </label>
-      <input
-        {...rest}
-        required={required}
-        className="mt-1.5 w-full rounded-md border border-input bg-background px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand"
-      />
-    </div>
   );
 }
