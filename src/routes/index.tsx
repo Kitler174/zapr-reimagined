@@ -74,8 +74,6 @@ function Index() {
         <About />
         <Services />
         <SystemSection />
-        <Certificates />
-        <EuProject />
         <Contact />
       </main>
 
