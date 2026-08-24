@@ -1,6 +1,9 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 
+import logo from "../../assets/icon.png.asset.json";
+
+
 const links = [
   { href: "#o-nas", label: "O nas" },
   { href: "#uslugi", label: "Usługi" },
@@ -17,8 +20,8 @@ export function Nav({ onOpenChat }: NavProps) {
   return (
     <header className="sticky top-0 z-50 border-b border-border/60 bg-background/80 backdrop-blur-md">
       <div className="container-x flex h-16 items-center justify-between">
-        <a href="#top" className="flex items-center gap-2">
-          <span className="grid h-9 w-9 place-items-center rounded-md bg-brand text-brand-foreground font-display text-lg">Z</span>
+        <a href="#top" className="flex items-center gap-3">
+          <img src={logo.url} alt="ZAP Rachunkowość" className="h-9 w-9 object-contain" />
           <span className="font-display text-xl leading-none">
             ZAP <span className="text-muted-foreground">Rachunkowość</span>
           </span>
