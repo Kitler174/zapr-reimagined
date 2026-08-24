@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 
-import logo from "../../assets/icon.png.asset.json";
 
 
 const links = [
@@ -21,7 +20,7 @@ export function Nav({ onOpenChat }: NavProps) {
     <header className="sticky top-0 z-50 border-b border-border/60 bg-background/80 backdrop-blur-md">
       <div className="container-x flex h-16 items-center justify-between">
         <a href="#top" className="flex items-center gap-3">
-          <img src={logo.url} alt="ZAP Rachunkowość" className="h-9 w-9 object-contain" />
+          <img src="/images/icon.png" alt="ZAP Rachunkowość" className="h-9 w-9 object-contain" />
           <span className="font-display text-xl leading-none">
             ZAP <span className="text-muted-foreground">Rachunkowość</span>
           </span>
