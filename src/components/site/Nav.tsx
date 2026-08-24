@@ -31,7 +31,7 @@ export function Nav({ onOpenChat }: NavProps) {
           ))}
           <button
             onClick={onOpenChat}
-            className="rounded-md bg-[#2563eb] px-4 py-2 text-white hover:bg-[#1d4ed8] transition"
+            className="rounded-md bg-brand px-4 py-2 text-brand-foreground hover:bg-brand/90 transition"
           >
             Asystent AI
           </button>
