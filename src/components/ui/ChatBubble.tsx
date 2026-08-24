@@ -213,7 +213,7 @@ export default function ChatBubble({
         {/* HEADER */}
         <div className="flex items-center justify-between border-b p-4">
           <div className="flex items-center gap-2">
-            <div className="grid h-9 w-9 place-items-center rounded-full bg-[#2563eb] text-white">
+            <div className="grid h-9 w-9 place-items-center rounded-full bg-brand text-brand-foreground">
               <MessageCircle className="h-5 w-5" />
             </div>
 
@@ -260,7 +260,7 @@ export default function ChatBubble({
                 <div
                   className={
                     msg.role === "user"
-                      ? "rounded-xl bg-[#2563eb] px-3 py-2 text-sm text-white"
+                      ? "rounded-xl bg-brand px-3 py-2 text-sm text-brand-foreground"
                       : "rounded-xl bg-muted px-3 py-2 text-sm"
                   }
                 >
@@ -309,13 +309,13 @@ export default function ChatBubble({
                 }
               }}
               placeholder="Napisz wiadomość..."
-              className="min-w-0 flex-1 rounded-md border bg-background px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-[#2563eb]"
+              className="min-w-0 flex-1 rounded-md border bg-background px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-brand"
             />
 
             <button
               onClick={() => sendMessage()}
               disabled={loading}
-              className="rounded-md bg-[#2563eb] px-3 py-2 text-white hover:bg-[#1d4ed8] disabled:opacity-50"
+              className="rounded-md bg-brand px-3 py-2 text-brand-foreground hover:bg-brand/90 disabled:opacity-50"
             >
               <Send className="h-4 w-4" />
             </button>
