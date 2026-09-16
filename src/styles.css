@@ -36,8 +36,11 @@
   --color-brand-soft: var(--brand-soft);
   --color-gold: var(--gold);
 
-  --font-display: "Instrument Serif", ui-serif, Georgia, serif;
+  --font-display: "Work Sans", ui-sans-serif, system-ui, sans-serif;
   --font-sans: "Work Sans", ui-sans-serif, system-ui, sans-serif;
+
+  --color-brand-deep: var(--brand-deep);
+  --color-accent-teal: var(--accent-teal);
 
   --shadow-elegant: 0 24px 60px -24px color-mix(in oklab, var(--brand) 35%, transparent);
   --shadow-card: 0 1px 2px oklch(0 0 0 / 0.04), 0 8px 24px -12px oklch(0 0 0 / 0.08);
@@ -79,9 +82,11 @@
   --ring: #358cce;
 
   --brand: #358cce;
-  --brand-foreground: oklch(0.98 0.005 240);
-  --brand-soft: color-mix(in oklab, #358cce 12%, white);
-  --gold: oklch(0.75 0.13 80);
+  --brand-foreground: oklch(0.99 0.005 240);
+  --brand-soft: color-mix(in oklab, #358cce 10%, white);
+  --brand-deep: #0f3b63;
+  --accent-teal: #0fa3a3;
+  --gold: oklch(0.78 0.15 75);
 }
 
 .dark {
@@ -115,9 +120,10 @@
     font-family: var(--font-sans);
     font-feature-settings: "ss01", "cv11";
   }
-  h1, h2, h3, .font-display {
+  h1, h2, h3, h4, .font-display {
     font-family: var(--font-display);
-    letter-spacing: -0.01em;
+    font-weight: 700;
+    letter-spacing: -0.025em;
   }
 }
 
