@@ -1,0 +1,1841 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ZAP Rachunkowość Sp. z o.o.</title>
+
+    <meta
+        name="description"
+        content="ZAP Rachunkowość – rozwiązania ERP, księgowość, IT, automatyzacja i nowoczesne rozwiązania dla biznesu."
+    >
+
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+
+
+<div id="ai-chat" class="ai-chat">
+
+    <div class="ai-chat__window">
+
+        <!-- HEADER -->
+        <div class="ai-chat__header">
+
+            <div class="ai-chat__identity">
+
+                <div class="ai-chat__icon">
+                    <span class="ai-chat__icon-symbol">AI</span>
+                </div>
+
+                <div>
+                    <div class="ai-chat__title">
+                        Asystent AI
+                    </div>
+
+                    <div class="ai-chat__subtitle">
+                        ZAPR Rachunkowość
+                    </div>
+                </div>
+
+            </div>
+
+            <button
+                type="button"
+                id="ai-chat-close"
+                class="ai-chat__close"
+                aria-label="Zamknij czat"
+            >
+                ×
+            </button>
+
+        </div>
+
+
+        <!-- MESSAGES -->
+        <div
+            id="ai-chat-messages"
+            class="ai-chat__messages"
+        >
+
+            <div
+                id="ai-chat-welcome"
+                class="ai-chat__welcome"
+            >
+                Witaj! W czym mogę Ci pomóc?
+            </div>
+
+        </div>
+
+
+        <!-- INPUT -->
+        <div class="ai-chat__input-area">
+
+            <div class="ai-chat__input-wrapper">
+
+                <input
+                    type="text"
+                    id="ai-chat-input"
+                    class="ai-chat__input"
+                    placeholder="Napisz wiadomość..."
+                    autocomplete="off"
+                >
+
+                <button
+                    type="button"
+                    id="ai-chat-send"
+                    class="ai-chat__send"
+                    aria-label="Wyślij wiadomość"
+                >
+                    <svg
+                        width="18"
+                        height="18"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <path
+                            d="M22 2L11 13"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        />
+
+                        <path
+                            d="M22 2L15 22L11 13L2 9L22 2Z"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        />
+                    </svg>
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+<body>
+<button
+    type="button"
+    id="ai-chat-open"
+    class="ai-floating-button"
+    aria-label="Otwórz asystenta AI"
+>
+    <span class="ai-floating-button__pulse"></span>
+
+    <span class="ai-floating-button__text">
+        AI
+    </span>
+</button>
+
+    <!-- =========================
+         CURSOR / BACKGROUND
+    ========================== -->
+
+    <div class="cursor-glow"></div>
+
+    <div class="page-background">
+        <div class="background-grid"></div>
+        <div class="background-orb background-orb-1"></div>
+        <div class="background-orb background-orb-2"></div>
+    </div>
+
+
+    <!-- =========================
+         HEADER
+    ========================== -->
+
+    <header class="site-header" id="siteHeader">
+
+        <div class="container header-inner">
+
+            <a href="#top" class="logo">
+                <span class="logo-mark">
+                    Z
+                </span>
+
+                <span class="logo-text">
+                    <strong>ZAP</strong>
+                    <small>Rachunkowość</small>
+                </span>
+            </a>
+
+
+            <nav class="main-nav" id="mainNav">
+
+                <a href="#o-nas">O nas</a>
+                <a href="#erp">ERP</a>
+                <a href="#ksiegowosc">Księgowość</a>
+                <a href="#rozwiazania">Rozwiązania</a>
+                <a href="#blog">Blog</a>
+                <a href="#kontakt">Kontakt</a>
+
+            </nav>
+
+
+            <div class="header-actions">
+
+                <a href="#kontakt" class="button button-small button-primary">
+                    Umów konsultację
+                </a>
+
+                <button
+                    class="mobile-menu-button"
+                    id="mobileMenuButton"
+                    type="button"
+                    aria-label="Otwórz menu"
+                    aria-expanded="false"
+                >
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <main id="top">
+
+
+        <!-- =========================
+             HERO
+        ========================== -->
+
+        <section class="hero">
+
+            <div class="container hero-container">
+
+                <div class="hero-content reveal">
+
+                    <div class="eyebrow">
+                        <span class="eyebrow-dot"></span>
+                        ERP · KSIĘGOWOŚĆ · IT
+                    </div>
+
+
+                    <h1>
+                        Technologia,
+                        która
+                        <span>porządkuje biznes.</span>
+                    </h1>
+
+
+                    <p class="hero-description">
+                        Łączymy księgowość, systemy ERP, automatykę,
+                        dane i technologie IT w rozwiązania dopasowane
+                        do rzeczywistych procesów przedsiębiorstwa.
+                    </p>
+
+
+                    <div class="hero-buttons">
+
+                        <a
+                            href="#erp"
+                            class="button button-primary button-large"
+                        >
+                            Poznaj rozwiązania
+                            <span>→</span>
+                        </a>
+
+                        <a
+                            href="#kontakt"
+                            class="button button-outline button-large"
+                        >
+                            Porozmawiajmy
+                        </a>
+
+                    </div>
+
+
+                    <div class="hero-meta">
+
+                        <div class="hero-meta-item">
+                            <strong>ERP</strong>
+                            <span>ZAPR-system</span>
+                        </div>
+
+                        <div class="hero-meta-item">
+                            <strong>AI</strong>
+                            <span>Automatyzacja</span>
+                        </div>
+
+                        <div class="hero-meta-item">
+                            <strong>IT</strong>
+                            <span>Integracje</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- HERO VISUAL -->
+
+                <div class="hero-visual reveal reveal-delay-2">
+
+                    <div class="dashboard-wrapper">
+
+                        <div class="dashboard-glow"></div>
+
+
+                        <div class="dashboard-card">
+
+                            <div class="dashboard-header">
+
+                                <div>
+                                    <span class="dashboard-label">
+                                        ZAPR SYSTEM
+                                    </span>
+
+                                    <h3>
+                                        Centrum zarządzania
+                                    </h3>
+                                </div>
+
+                                <div class="dashboard-status">
+                                    <span></span>
+                                    Online
+                                </div>
+
+                            </div>
+
+
+                            <div class="dashboard-main-stat">
+
+                                <div>
+                                    <small>
+                                        OPERACJE BIZNESOWE
+                                    </small>
+
+                                    <strong>
+                                        ERP
+                                    </strong>
+                                </div>
+
+                                <div class="dashboard-chart">
+
+                                    <span style="height: 35%"></span>
+                                    <span style="height: 50%"></span>
+                                    <span style="height: 42%"></span>
+                                    <span style="height: 65%"></span>
+                                    <span style="height: 58%"></span>
+                                    <span style="height: 82%"></span>
+                                    <span style="height: 72%"></span>
+                                    <span style="height: 94%"></span>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="dashboard-modules">
+
+                                <div class="dashboard-module active">
+                                    <span class="module-icon">◈</span>
+                                    <span>Finanse</span>
+                                </div>
+
+                                <div class="dashboard-module">
+                                    <span class="module-icon">▦</span>
+                                    <span>WMS</span>
+                                </div>
+
+                                <div class="dashboard-module">
+                                    <span class="module-icon">◎</span>
+                                    <span>Produkcja</span>
+                                </div>
+
+                                <div class="dashboard-module">
+                                    <span class="module-icon">⌁</span>
+                                    <span>CRM</span>
+                                </div>
+
+                            </div>
+
+
+                            <div class="dashboard-bottom">
+
+                                <div class="mini-card">
+                                    <span>AI</span>
+                                    <strong>Automatyzacja</strong>
+                                </div>
+
+                                <div class="mini-card">
+                                    <span>API</span>
+                                    <strong>Integracje</strong>
+                                </div>
+
+                                <div class="mini-card">
+                                    <span>BI</span>
+                                    <strong>Analityka</strong>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="floating-card floating-card-ai">
+
+                            <div class="floating-icon">
+                                AI
+                            </div>
+
+                            <div>
+                                <strong>AI Assistant</strong>
+                                <span>Pomoc dostępna 24/7</span>
+                            </div>
+
+                        </div>
+
+
+                        <div class="floating-card floating-card-ksef">
+
+                            <span class="floating-status"></span>
+
+                            <div>
+                                <strong>KSeF</strong>
+                                <span>Integracja systemowa</span>
+                            </div>
+
+                        </div>
+
+
+                        <div class="floating-card floating-card-wms">
+
+                            <div class="floating-icon">
+                                W
+                            </div>
+
+                            <div>
+                                <strong>WMS</strong>
+                                <span>Zarządzanie magazynem</span>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="hero-scroll">
+
+                <span>Przewiń</span>
+
+                <div class="scroll-line">
+                    <span></span>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             MARQUEE
+        ========================== -->
+
+        <section class="technology-strip">
+
+            <div class="marquee">
+
+                <div class="marquee-content">
+
+                    <span>ERP</span>
+                    <i></i>
+
+                    <span>AI</span>
+                    <i></i>
+
+                    <span>WMS</span>
+                    <i></i>
+
+                    <span>CRM</span>
+                    <i></i>
+
+                    <span>BI</span>
+                    <i></i>
+
+                    <span>KSeF</span>
+                    <i></i>
+
+                    <span>JPK</span>
+                    <i></i>
+
+                    <span>API</span>
+                    <i></i>
+
+                    <span>ERP</span>
+                    <i></i>
+
+                    <span>AI</span>
+                    <i></i>
+
+                    <span>WMS</span>
+                    <i></i>
+
+                    <span>CRM</span>
+                    <i></i>
+
+                    <span>BI</span>
+                    <i></i>
+
+                    <span>KSeF</span>
+                    <i></i>
+
+                    <span>JPK</span>
+                    <i></i>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             O NAS
+        ========================== -->
+
+        <section class="section section-light" id="o-nas">
+
+            <div class="container">
+
+                <div class="section-header reveal">
+
+                    <div>
+
+                        <span class="section-kicker">
+                            O NAS
+                        </span>
+
+                        <h2>
+                            Księgowość i IT
+                            <span>w jednym ekosystemie.</span>
+                        </h2>
+
+                    </div>
+
+                    <p>
+                        Łączymy doświadczenie biznesowe z technologią,
+                        aby upraszczać procesy i dostarczać rozwiązania,
+                        które odpowiadają na rzeczywiste potrzeby firm.
+                    </p>
+
+                </div>
+
+
+                <div class="about-grid">
+
+                    <div class="about-image reveal">
+
+                        <div class="image-overlay"></div>
+
+                        <div class="about-image-content">
+
+                            <span>TECHNOLOGIA</span>
+
+                            <strong>
+                                Rozwiązania
+                                dla nowoczesnego biznesu
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="about-content reveal reveal-delay-1">
+
+                        <div class="about-number">
+                            01
+                        </div>
+
+                        <h3>
+                            Nie sprzedajemy
+                            samego oprogramowania.
+                        </h3>
+
+                        <p>
+                            Punktem wyjścia są procesy przedsiębiorstwa.
+                            Dopiero później dobieramy odpowiednie
+                            rozwiązania technologiczne, automatyzację
+                            i sposób integracji danych.
+                        </p>
+
+
+                        <div class="feature-list">
+
+                            <div class="feature-item">
+
+                                <span class="feature-number">
+                                    01
+                                </span>
+
+                                <div>
+                                    <strong>Analiza procesów</strong>
+                                    <p>
+                                        Poznajemy sposób działania firmy.
+                                    </p>
+                                </div>
+
+                            </div>
+
+
+                            <div class="feature-item">
+
+                                <span class="feature-number">
+                                    02
+                                </span>
+
+                                <div>
+                                    <strong>Projekt rozwiązania</strong>
+                                    <p>
+                                        Łączymy procesy, dane i technologię.
+                                    </p>
+                                </div>
+
+                            </div>
+
+
+                            <div class="feature-item">
+
+                                <span class="feature-number">
+                                    03
+                                </span>
+
+                                <div>
+                                    <strong>Wdrożenie i rozwój</strong>
+                                    <p>
+                                        System może rozwijać się razem z firmą.
+                                    </p>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             ERP
+        ========================== -->
+
+        <section class="section section-dark" id="erp">
+
+            <div class="container">
+
+                <div class="section-header section-header-dark reveal">
+
+                    <div>
+
+                        <span class="section-kicker">
+                            ZAPR-SYSTEM
+                        </span>
+
+                        <h2>
+                            Jeden system.
+                            <span>Wiele procesów.</span>
+                        </h2>
+
+                    </div>
+
+                    <p>
+                        System ERP może łączyć obszary finansowe,
+                        sprzedażowe, magazynowe, produkcyjne,
+                        kadrowe i analityczne.
+                    </p>
+
+                </div>
+
+
+                <div class="erp-layout">
+
+
+                    <!-- MODULE NAV -->
+
+                    <div class="erp-tabs reveal">
+
+                        <button
+                            class="erp-tab active"
+                            type="button"
+                            data-module="finanse"
+                        >
+                            <span>01</span>
+                            Finanse i księgowość
+                            <b>→</b>
+                        </button>
+
+                        <button
+                            class="erp-tab"
+                            type="button"
+                            data-module="produkcja"
+                        >
+                            <span>02</span>
+                            Produkcja
+                            <b>→</b>
+                        </button>
+
+                        <button
+                            class="erp-tab"
+                            type="button"
+                            data-module="wms"
+                        >
+                            <span>03</span>
+                            WMS i magazyn
+                            <b>→</b>
+                        </button>
+
+                        <button
+                            class="erp-tab"
+                            type="button"
+                            data-module="sprzedaz"
+                        >
+                            <span>04</span>
+                            Sprzedaż i CRM
+                            <b>→</b>
+                        </button>
+
+                        <button
+                            class="erp-tab"
+                            type="button"
+                            data-module="hr"
+                        >
+                            <span>05</span>
+                            HR i kadry
+                            <b>→</b>
+                        </button>
+
+                        <button
+                            class="erp-tab"
+                            type="button"
+                            data-module="bi"
+                        >
+                            <span>06</span>
+                            BI i analityka
+                            <b>→</b>
+                        </button>
+
+                    </div>
+
+
+                    <!-- MODULE CONTENT -->
+
+                    <div class="erp-content reveal reveal-delay-1">
+
+                        <div
+                            class="erp-panel active"
+                            data-panel="finanse"
+                        >
+
+                            <div class="erp-panel-header">
+
+                                <span class="panel-number">
+                                    01
+                                </span>
+
+                                <div>
+
+                                    <span>MODUŁ ERP</span>
+
+                                    <h3>
+                                        Finanse i księgowość
+                                    </h3>
+
+                                </div>
+
+                            </div>
+
+
+                            <p>
+                                Centralizacja danych finansowych,
+                                automatyzacja procesów księgowych
+                                i dostęp do informacji potrzebnych
+                                do podejmowania decyzji.
+                            </p>
+
+
+                            <div class="erp-features">
+
+                                <span>Księgowość</span>
+                                <span>JPK</span>
+                                <span>KSeF</span>
+                                <span>Faktury</span>
+                                <span>Rozrachunki</span>
+                                <span>Raportowanie</span>
+
+                            </div>
+
+                        </div>
+
+
+                        <div
+                            class="erp-panel"
+                            data-panel="produkcja"
+                        >
+
+                            <div class="erp-panel-header">
+
+                                <span class="panel-number">
+                                    02
+                                </span>
+
+                                <div>
+
+                                    <span>MODUŁ ERP</span>
+
+                                    <h3>
+                                        Produkcja
+                                    </h3>
+
+                                </div>
+
+                            </div>
+
+                            <p>
+                                Planowanie i kontrola procesów
+                                produkcyjnych, zarządzanie strukturami
+                                produktów oraz monitorowanie realizacji.
+                            </p>
+
+                            <div class="erp-features">
+
+                                <span>BOM</span>
+                                <span>QRM</span>
+                                <span>POLCA</span>
+                                <span>OEE</span>
+                                <span>Kontrola jakości</span>
+                                <span>Procesy</span>
+
+                            </div>
+
+                        </div>
+
+
+                        <div
+                            class="erp-panel"
+                            data-panel="wms"
+                        >
+
+                            <div class="erp-panel-header">
+
+                                <span class="panel-number">
+                                    03
+                                </span>
+
+                                <div>
+
+                                    <span>MODUŁ ERP</span>
+
+                                    <h3>
+                                        WMS i magazyn
+                                    </h3>
+
+                                </div>
+
+                            </div>
+
+                            <p>
+                                Obsługa procesów magazynowych,
+                                lokalizacji, przesunięć, inwentaryzacji
+                                oraz kontroli przepływu produktów.
+                            </p>
+
+                            <div class="erp-features">
+
+                                <span>WMS</span>
+                                <span>GS1</span>
+                                <span>Inwentaryzacja</span>
+                                <span>Lokalizacje</span>
+                                <span>Partie</span>
+                                <span>Terminy ważności</span>
+
+                            </div>
+
+                        </div>
+
+
+                        <div
+                            class="erp-panel"
+                            data-panel="sprzedaz"
+                        >
+
+                            <div class="erp-panel-header">
+
+                                <span class="panel-number">
+                                    04
+                                </span>
+
+                                <div>
+
+                                    <span>MODUŁ ERP</span>
+
+                                    <h3>
+                                        Sprzedaż i CRM
+                                    </h3>
+
+                                </div>
+
+                            </div>
+
+                            <p>
+                                Zarządzanie klientami, sprzedażą,
+                                zamówieniami oraz informacją handlową.
+                            </p>
+
+                            <div class="erp-features">
+
+                                <span>CRM</span>
+                                <span>B2B</span>
+                                <span>W2B</span>
+                                <span>Zamówienia</span>
+                                <span>Kontrahenci</span>
+                                <span>Automatyzacja</span>
+
+                            </div>
+
+                        </div>
+
+
+                        <div
+                            class="erp-panel"
+                            data-panel="hr"
+                        >
+
+                            <div class="erp-panel-header">
+
+                                <span class="panel-number">
+                                    05
+                                </span>
+
+                                <div>
+
+                                    <span>MODUŁ ERP</span>
+
+                                    <h3>
+                                        HR i kadry
+                                    </h3>
+
+                                </div>
+
+                            </div>
+
+                            <p>
+                                Narzędzia wspierające zarządzanie
+                                pracownikami, czasem pracy i procesami
+                                kadrowo-płacowymi.
+                            </p>
+
+                            <div class="erp-features">
+
+                                <span>Kadry</span>
+                                <span>Płace</span>
+                                <span>RCP</span>
+                                <span>Pracownicy</span>
+                                <span>Dokumenty</span>
+                                <span>RODO</span>
+
+                            </div>
+
+                        </div>
+
+
+                        <div
+                            class="erp-panel"
+                            data-panel="bi"
+                        >
+
+                            <div class="erp-panel-header">
+
+                                <span class="panel-number">
+                                    06
+                                </span>
+
+                                <div>
+
+                                    <span>MODUŁ ERP</span>
+
+                                    <h3>
+                                        BI i analityka
+                                    </h3>
+
+                                </div>
+
+                            </div>
+
+                            <p>
+                                Dane przedsiębiorstwa przedstawione
+                                w sposób umożliwiający analizę,
+                                kontrolę i podejmowanie decyzji.
+                            </p>
+
+                            <div class="erp-features">
+
+                                <span>BI</span>
+                                <span>Pareto</span>
+                                <span>KPI</span>
+                                <span>Raporty</span>
+                                <span>Analityka</span>
+                                <span>Dashboardy</span>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="erp-visual">
+
+                            <div class="erp-orbit orbit-1"></div>
+                            <div class="erp-orbit orbit-2"></div>
+
+                            <div class="erp-core">
+                                <span>ERP</span>
+                                <strong>ZAPR</strong>
+                            </div>
+
+                            <div class="orbit-item orbit-item-1">
+                                AI
+                            </div>
+
+                            <div class="orbit-item orbit-item-2">
+                                WMS
+                            </div>
+
+                            <div class="orbit-item orbit-item-3">
+                                BI
+                            </div>
+
+                            <div class="orbit-item orbit-item-4">
+                                CRM
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             AI
+        ========================== -->
+
+        <section class="section ai-section" id="rozwiazania">
+
+            <div class="container">
+
+                <div class="ai-grid">
+
+                    <div class="ai-content reveal">
+
+                        <span class="section-kicker">
+                            NOWOCZESNE TECHNOLOGIE
+                        </span>
+
+                        <h2>
+                            AI jako
+                            <span>wsparcie człowieka.</span>
+                        </h2>
+
+                        <p>
+                            Sztuczna inteligencja może wspierać
+                            użytkowników systemu w wyszukiwaniu
+                            informacji, analizie danych oraz
+                            codziennej pracy.
+                        </p>
+
+
+                        <div class="ai-points">
+
+                            <div>
+                                <span>01</span>
+                                <strong>Pomoc kontekstowa</strong>
+                            </div>
+
+                            <div>
+                                <span>02</span>
+                                <strong>Analiza informacji</strong>
+                            </div>
+
+                            <div>
+                                <span>03</span>
+                                <strong>Automatyzacja</strong>
+                            </div>
+
+                        </div>
+
+
+                        <a
+                            href="#kontakt"
+                            class="button button-primary"
+                        >
+                            Porozmawiaj o AI
+                            <span>→</span>
+                        </a>
+
+                    </div>
+
+
+                    <div class="ai-interface reveal reveal-delay-2">
+
+                        <div class="ai-window">
+
+                            <div class="ai-window-header">
+
+                                <div class="ai-user">
+
+                                    <div class="ai-avatar">
+                                        Z
+                                    </div>
+
+                                    <div>
+                                        <strong>
+                                            ZAPR AI
+                                        </strong>
+
+                                        <span>
+                                            Asystent systemu
+                                        </span>
+                                    </div>
+
+                                </div>
+
+                                <span class="ai-online">
+                                    ●
+                                </span>
+
+                            </div>
+
+
+                            <div class="ai-messages">
+
+                                <div class="ai-message user-message">
+                                    Jak sprawdzić stan magazynu?
+                                </div>
+
+                                <div class="ai-message assistant-message">
+
+                                    <span class="typing-dot"></span>
+                                    <p>
+                                        Mogę pomóc znaleźć informacje
+                                        dotyczące stanów magazynowych,
+                                        lokalizacji oraz dostępności
+                                        produktów.
+                                    </p>
+
+                                </div>
+
+                                <div class="ai-suggestions">
+
+                                    <button type="button">
+                                        Stan magazynu
+                                    </button>
+
+                                    <button type="button">
+                                        Lokalizacje
+                                    </button>
+
+                                    <button type="button">
+                                        Raport WMS
+                                    </button>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="ai-input">
+
+                                <span>
+                                    Zapytaj system...
+                                </span>
+
+                                <button type="button">
+                                    →
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             KSIĘGOWOŚĆ
+        ========================== -->
+
+        <section class="section section-light" id="ksiegowosc">
+
+            <div class="container">
+
+                <div class="accounting-grid">
+
+                    <div class="accounting-image reveal">
+
+                        <div class="accounting-image-overlay">
+
+                            <span>
+                                KSIĘGOWOŚĆ
+                            </span>
+
+                            <strong>
+                                Dane, dokumenty
+                                i procesy w jednym miejscu.
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="accounting-content reveal reveal-delay-1">
+
+                        <span class="section-kicker">
+                            USŁUGI KSIĘGOWE
+                        </span>
+
+                        <h2>
+                            Więcej niż
+                            <span>księgowość.</span>
+                        </h2>
+
+                        <p>
+                            Obsługa księgowa może być połączona
+                            z technologią, automatyzacją oraz
+                            bezpiecznym obiegiem dokumentów.
+                        </p>
+
+
+                        <div class="accounting-features">
+
+                            <div class="accounting-feature">
+
+                                <span>01</span>
+
+                                <div>
+                                    <strong>
+                                        Dokumenty
+                                    </strong>
+
+                                    <p>
+                                        Cyfrowy obieg dokumentów
+                                        i uporządkowane dane.
+                                    </p>
+                                </div>
+
+                            </div>
+
+
+                            <div class="accounting-feature">
+
+                                <span>02</span>
+
+                                <div>
+                                    <strong>
+                                        KSeF
+                                    </strong>
+
+                                    <p>
+                                        Obsługa procesów związanych
+                                        z fakturami elektronicznymi.
+                                    </p>
+                                </div>
+
+                            </div>
+
+
+                            <div class="accounting-feature">
+
+                                <span>03</span>
+
+                                <div>
+                                    <strong>
+                                        Kontakt z ekspertem
+                                    </strong>
+
+                                    <p>
+                                        Bezpośredni kontakt i wsparcie
+                                        w codziennych procesach.
+                                    </p>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <a
+                            href="#kontakt"
+                            class="text-link"
+                        >
+                            Poznaj ofertę księgową
+                            <span>→</span>
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             INDUSTRIES
+        ========================== -->
+
+        <section class="section industries-section">
+
+            <div class="container">
+
+                <div class="section-header reveal">
+
+                    <div>
+
+                        <span class="section-kicker">
+                            BRANŻE
+                        </span>
+
+                        <h2>
+                            Rozwiązania dopasowane
+                            <span>do procesu.</span>
+                        </h2>
+
+                    </div>
+
+                    <p>
+                        Różne branże mają różne procesy.
+                        Dlatego system powinien być dopasowany
+                        do sposobu funkcjonowania przedsiębiorstwa.
+                    </p>
+
+                </div>
+
+
+                <div class="industries-grid">
+
+                    <article class="industry-card industry-card-large reveal">
+
+                        <div class="industry-number">
+                            01
+                        </div>
+
+                        <div>
+
+                            <span>
+                                PRODUKCJA
+                            </span>
+
+                            <h3>
+                                Od zamówienia
+                                do gotowego produktu.
+                            </h3>
+
+                            <p>
+                                Produkcja, BOM, planowanie,
+                                jakość, OEE oraz kontrola procesów.
+                            </p>
+
+                        </div>
+
+                        <a href="#kontakt">
+                            →
+                        </a>
+
+                    </article>
+
+
+                    <article class="industry-card reveal reveal-delay-1">
+
+                        <div class="industry-number">
+                            02
+                        </div>
+
+                        <span>
+                            HANDEL
+                        </span>
+
+                        <h3>
+                            Sprzedaż,
+                            magazyn i B2B.
+                        </h3>
+
+                        <a href="#kontakt">
+                            →
+                        </a>
+
+                    </article>
+
+
+                    <article class="industry-card reveal reveal-delay-2">
+
+                        <div class="industry-number">
+                            03
+                        </div>
+
+                        <span>
+                            USŁUGI
+                        </span>
+
+                        <h3>
+                            Procesy,
+                            finanse i klienci.
+                        </h3>
+
+                        <a href="#kontakt">
+                            →
+                        </a>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             PROCESS
+        ========================== -->
+
+        <section class="section process-section">
+
+            <div class="container">
+
+                <div class="process-header reveal">
+
+                    <span class="section-kicker">
+                        JAK PRACUJEMY
+                    </span>
+
+                    <h2>
+                        Od pomysłu
+                        <span>do działającego rozwiązania.</span>
+                    </h2>
+
+                </div>
+
+
+                <div class="process-grid">
+
+                    <div class="process-item reveal">
+
+                        <span class="process-number">
+                            01
+                        </span>
+
+                        <div class="process-line"></div>
+
+                        <h3>
+                            Poznajemy firmę
+                        </h3>
+
+                        <p>
+                            Analizujemy procesy, potrzeby
+                            oraz sposób pracy użytkowników.
+                        </p>
+
+                    </div>
+
+
+                    <div class="process-item reveal reveal-delay-1">
+
+                        <span class="process-number">
+                            02
+                        </span>
+
+                        <div class="process-line"></div>
+
+                        <h3>
+                            Projektujemy
+                        </h3>
+
+                        <p>
+                            Dobieramy rozwiązania i projektujemy
+                            sposób działania systemu.
+                        </p>
+
+                    </div>
+
+
+                    <div class="process-item reveal reveal-delay-2">
+
+                        <span class="process-number">
+                            03
+                        </span>
+
+                        <div class="process-line"></div>
+
+                        <h3>
+                            Wdrażamy
+                        </h3>
+
+                        <p>
+                            System jest uruchamiany i dostosowywany
+                            do rzeczywistych procesów.
+                        </p>
+
+                    </div>
+
+
+                    <div class="process-item reveal reveal-delay-3">
+
+                        <span class="process-number">
+                            04
+                        </span>
+
+                        <div class="process-line"></div>
+
+                        <h3>
+                            Rozwijamy
+                        </h3>
+
+                        <p>
+                            Rozwiązanie może być rozwijane
+                            wraz ze zmianami firmy.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             BLOG
+        ========================== -->
+
+        <section class="section section-light" id="blog">
+
+            <div class="container">
+
+                <div class="section-header reveal">
+
+                    <div>
+
+                        <span class="section-kicker">
+                            WIEDZA
+                        </span>
+
+                        <h2>
+                            Wiedza, która pomaga
+                            <span>podejmować decyzje.</span>
+                        </h2>
+
+                    </div>
+
+                    <a
+                        href="#"
+                        class="text-link"
+                    >
+                        Zobacz wszystkie artykuły →
+                    </a>
+
+                </div>
+
+
+                <div class="blog-grid">
+
+                    <article class="blog-card reveal">
+
+                        <div class="blog-image blog-image-1">
+
+                            <span>
+                                ERP
+                            </span>
+
+                        </div>
+
+                        <div class="blog-content">
+
+                            <span class="blog-date">
+                                ERP · TECHNOLOGIA
+                            </span>
+
+                            <h3>
+                                Jak system ERP może uporządkować
+                                procesy przedsiębiorstwa?
+                            </h3>
+
+                            <a href="#">
+                                Czytaj artykuł →
+                            </a>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="blog-card reveal reveal-delay-1">
+
+                        <div class="blog-image blog-image-2">
+
+                            <span>
+                                AI
+                            </span>
+
+                        </div>
+
+                        <div class="blog-content">
+
+                            <span class="blog-date">
+                                AI · AUTOMATYZACJA
+                            </span>
+
+                            <h3>
+                                Gdzie sztuczna inteligencja
+                                może wspierać biznes?
+                            </h3>
+
+                            <a href="#">
+                                Czytaj artykuł →
+                            </a>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="blog-card reveal reveal-delay-2">
+
+                        <div class="blog-image blog-image-3">
+
+                            <span>
+                                KSIĘGOWOŚĆ
+                            </span>
+
+                        </div>
+
+                        <div class="blog-content">
+
+                            <span class="blog-date">
+                                KSIĘGOWOŚĆ · PRAWO
+                            </span>
+
+                            <h3>
+                                Cyfryzacja dokumentów
+                                i procesów księgowych.
+                            </h3>
+
+                            <a href="#">
+                                Czytaj artykuł →
+                            </a>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             CTA
+        ========================== -->
+
+        <section class="cta-section" id="kontakt">
+
+            <div class="cta-background">
+
+                <div class="cta-grid"></div>
+                <div class="cta-orb"></div>
+
+            </div>
+
+
+            <div class="container">
+
+                <div class="cta-content reveal">
+
+                    <span class="section-kicker">
+                        POROZMAWIAJMY
+                    </span>
+
+                    <h2>
+                        Masz proces,
+                        który można zrobić
+                        <span>lepiej?</span>
+                    </h2>
+
+                    <p>
+                        Porozmawiajmy o tym, jak technologia,
+                        automatyzacja i dane mogą wesprzeć
+                        rozwój Twojej firmy.
+                    </p>
+
+
+                    <div class="cta-buttons">
+
+                        <a
+                            href="mailto:kontakt@zapr.pl"
+                            class="button button-white button-large"
+                        >
+                            Napisz do nas
+                            <span>→</span>
+                        </a>
+
+                        <a
+                            href="tel:+48000000000"
+                            class="button button-transparent button-large"
+                        >
+                            Porozmawiajmy
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer class="site-footer">
+
+        <div class="container">
+
+            <div class="footer-top">
+
+                <div class="footer-brand">
+
+                    <a href="#top" class="logo logo-footer">
+
+                        <span class="logo-mark">
+                            Z
+                        </span>
+
+                        <span class="logo-text">
+                            <strong>ZAP</strong>
+                            <small>Rachunkowość</small>
+                        </span>
+
+                    </a>
+
+                    <p>
+                        Księgowość, ERP i technologie
+                        wspierające rozwój biznesu.
+                    </p>
+
+                </div>
+
+
+                <div class="footer-column">
+
+                    <h4>
+                        Firma
+                    </h4>
+
+                    <a href="#o-nas">O nas</a>
+                    <a href="#erp">ERP</a>
+                    <a href="#ksiegowosc">Księgowość</a>
+                    <a href="#blog">Blog</a>
+
+                </div>
+
+
+                <div class="footer-column">
+
+                    <h4>
+                        Rozwiązania
+                    </h4>
+
+                    <a href="#erp">ERP</a>
+                    <a href="#rozwiazania">AI</a>
+                    <a href="#erp">WMS</a>
+                    <a href="#erp">BI</a>
+
+                </div>
+
+
+                <div class="footer-column">
+
+                    <h4>
+                        Kontakt
+                    </h4>
+
+                    <a href="mailto:kontakt@zapr.pl">
+                        kontakt@zapr.pl
+                    </a>
+
+                    <a href="#kontakt">
+                        Umów konsultację
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="footer-bottom">
+
+                <span>
+                    © 2026 ZAP Rachunkowość Sp. z o.o.
+                </span>
+
+                <div>
+
+                    <a href="#">
+                        Polityka prywatności
+                    </a>
+
+                    <a href="#">
+                        Cookies
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </footer>
+    <script src="{% static 'main.js' %}"></script>
+
+</body>
+</html>
