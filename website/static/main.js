@@ -737,15 +737,37 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function updateMessage(index, content) {
 
-        if (!messages[index]) {
+        if (!messages[index] || !messagesContainer) {
             return;
         }
-
+    
         messages[index].content = content;
-
-        renderMessages();
+    
+        const rows =
+            messagesContainer.querySelectorAll(
+                ".ai-chat__message-row"
+            );
+    
+        const row = rows[index];
+    
+        if (!row) {
+            return;
+        }
+    
+        const message =
+            row.querySelector(
+                ".ai-chat__message"
+            );
+    
+        if (!message) {
+            return;
+        }
+    
+        message.textContent = content;
+    
+        messagesContainer.scrollTop =
+            messagesContainer.scrollHeight;
     }
-
 
     /*
     =========================================================
