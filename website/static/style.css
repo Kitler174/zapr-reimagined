@@ -4742,7 +4742,7 @@ img {
 
     .ai-chat__window {
 
-        height: calc(100vh - 24px);
+        height: calc(100vh - 200px);
 
         max-height: none;
 
